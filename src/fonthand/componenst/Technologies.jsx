@@ -168,12 +168,19 @@ const Technologies = () => {
     ]);
   };
 
+  const removeFromStack = (technologyName) => {
+    setSelectedTechnologies(
+      selectedTechnologies.filter(
+        (item) => item.name !== technologyName
+      )
+    );
+  };
+
   return (
     <section
       id="technologies"
       className="mx-auto max-w-[1120px] px-5 py-14"
     >
-      {/* Heading */}
       <div>
         <h2 className="text-2xl font-bold text-slate-900">
           Explore the{" "}
@@ -185,17 +192,13 @@ const Technologies = () => {
         </p>
       </div>
 
-      {/* Content */}
       <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-4">
-
-        {/* Technology Cards */}
         <div className="grid grid-cols-1 gap-3 md:col-span-3 md:grid-cols-3">
           {technologies.map((technology) => (
             <div
               key={technology.name}
               className="rounded-lg border border-gray-100 bg-white p-3 shadow-sm"
             >
-              {/* Top */}
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-2">
                   <div className="flex h-7 w-7 items-center justify-center text-lg">
@@ -214,12 +217,10 @@ const Technologies = () => {
                 </span>
               </div>
 
-              {/* Description */}
               <p className="mt-3 min-h-[42px] text-[8px] leading-4 text-gray-500">
                 {technology.description}
               </p>
 
-              {/* Information */}
               <div className="mt-3 flex items-center justify-between">
                 <span className="rounded bg-gray-50 px-2 py-1 text-[7px] text-gray-500">
                   {technology.category}
@@ -234,7 +235,6 @@ const Technologies = () => {
                 </span>
               </div>
 
-              {/* Add Button */}
               <button
                 onClick={() => addToStack(technology)}
                 className="mt-3 w-full rounded bg-slate-950 py-2 text-[8px] font-medium text-white"
@@ -245,7 +245,6 @@ const Technologies = () => {
           ))}
         </div>
 
-        {/* Your Stack */}
         <div className="h-fit rounded-lg border border-gray-100 bg-white p-3 shadow-sm">
           <h3 className="text-xs font-semibold text-slate-900">
             Your Stack
@@ -257,7 +256,6 @@ const Technologies = () => {
               : `${selectedTechnologies.length} technologies selected`}
           </p>
 
-          {/* Selected Technologies */}
           <div className="mt-5 space-y-2">
             {selectedTechnologies.length === 0 ? (
               <div className="flex min-h-[80px] items-center justify-center rounded-lg border border-dashed border-gray-200">
@@ -284,12 +282,18 @@ const Technologies = () => {
                       {technology.category}
                     </p>
                   </div>
+
+                  <button
+                    onClick={() => removeFromStack(technology.name)}
+                    className="ml-auto text-[8px] text-red-500"
+                  >
+                    Remove
+                  </button>
                 </div>
               ))
             )}
           </div>
         </div>
-
       </div>
     </section>
   );
