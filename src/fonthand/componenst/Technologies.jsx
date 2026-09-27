@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   SiReact,
   SiVuedotjs,
@@ -149,6 +151,23 @@ const technologies = [
 ];
 
 const Technologies = () => {
+  const [selectedTechnologies, setSelectedTechnologies] = useState([]);
+
+  const addToStack = (technology) => {
+    const alreadySelected = selectedTechnologies.some(
+      (item) => item.name === technology.name
+    );
+
+    if (alreadySelected) {
+      return;
+    }
+
+    setSelectedTechnologies([
+      ...selectedTechnologies,
+      technology,
+    ]);
+  };
+
   return (
     <section
       id="technologies"
@@ -215,8 +234,11 @@ const Technologies = () => {
                 </span>
               </div>
 
-              {/* Button */}
-              <button className="mt-3 w-full rounded bg-slate-950 py-2 text-[8px] font-medium text-white">
+              {/* Add Button */}
+              <button
+                onClick={() => addToStack(technology)}
+                className="mt-3 w-full rounded bg-slate-950 py-2 text-[8px] font-medium text-white"
+              >
                 Add to Stack
               </button>
             </div>
@@ -230,13 +252,41 @@ const Technologies = () => {
           </h3>
 
           <p className="mt-1 text-[8px] text-gray-400">
-            No technologies selected yet.
+            {selectedTechnologies.length === 0
+              ? "No technologies selected yet."
+              : `${selectedTechnologies.length} technologies selected`}
           </p>
 
-          <div className="mt-5 flex min-h-[80px] items-center justify-center rounded-lg border border-dashed border-gray-200">
-            <p className="text-[8px] text-gray-400">
-              Your stack is empty
-            </p>
+          {/* Selected Technologies */}
+          <div className="mt-5 space-y-2">
+            {selectedTechnologies.length === 0 ? (
+              <div className="flex min-h-[80px] items-center justify-center rounded-lg border border-dashed border-gray-200">
+                <p className="text-[8px] text-gray-400">
+                  Your stack is empty
+                </p>
+              </div>
+            ) : (
+              selectedTechnologies.map((technology) => (
+                <div
+                  key={technology.name}
+                  className="flex items-center gap-2 rounded-md border border-gray-100 p-2"
+                >
+                  <div className="flex h-6 w-6 items-center justify-center text-base">
+                    {technology.icon}
+                  </div>
+
+                  <div>
+                    <p className="text-[9px] font-medium text-slate-900">
+                      {technology.name}
+                    </p>
+
+                    <p className="text-[7px] text-gray-400">
+                      {technology.category}
+                    </p>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
         </div>
 
