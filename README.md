@@ -1,32 +1,41 @@
-<!-- # React + TypeScript + Vite -->
-<!-- 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# Dev Stack
 
-Currently, two official plugins are available:
+Dev Stack is a modern web application where developers can explore different technologies and build their own development stack. Users can select technologies, add them to their stack, remove them, and clear the selected stack.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Technologies Used
 
-## React Compiler
+- React
+- TypeScript
+- Tailwind CSS
+- Vite
+- React Icons
+- JavaScript
+- HTML
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the Oxlint configuration
+### 1. Explore Technologies
+Users can explore different frontend, backend, database, language, styling, and DevOps technologies.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### 2. Build Your Stack
+Users can add their favorite technologies to their own stack and see the selected technologies in one place.
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+### 3. Manage Your Stack
+Users can remove individual technologies or clear the entire stack using the "Clear All" button.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories. -->
+---
+
+# React Questions & Answers
+
+## 1. What is JSX, and why is it used in React?
+
+JSX is a syntax that lets us write HTML-like code inside JavaScript.
+
+It makes React components easier to write and understand.
+
+Example:
+
+```jsx
+const App = () => {
+  return <h1>Hello World</h1>;
+};
