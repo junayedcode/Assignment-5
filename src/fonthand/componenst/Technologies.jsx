@@ -37,28 +37,28 @@ const Technologies = () => {
   return (
     <section
       id="technologies"
-      className="mx-auto max-w-[1120px] px-5 py-14"
+      className="mx-auto max-w-[1120px] px-4 py-10 sm:px-5 sm:py-14"
     >
       {/* Section Heading */}
 
       <div>
-        <h2 className="text-2xl font-bold text-slate-900">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">
           Explore the{" "}
           <span className="text-pink-500">Technologies</span>
         </h2>
 
-        <p className="mt-1 text-[10px] text-gray-500">
+        <p className="mt-1 text-[9px] text-gray-500 sm:text-[10px]">
           Pick one technology per category to build your ideal stack.
         </p>
       </div>
 
       {/* Main Content */}
 
-      <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-4">
+      <div className="mt-5 grid grid-cols-1 gap-4 md:grid-cols-4">
 
         {/* Technology Cards */}
 
-        <div className="grid grid-cols-1 gap-3 md:col-span-3 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:col-span-3 md:grid-cols-3">
 
           {technologies.map((technology) => (
             <div
@@ -68,11 +68,11 @@ const Technologies = () => {
 
               {/* Card Header */}
 
-              <div className="flex items-start justify-between">
+              <div className="flex items-start justify-between gap-2">
 
                 <div className="flex items-center gap-2">
 
-                  <div className="flex h-7 w-7 items-center justify-center text-lg">
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center text-lg">
                     {technology.icon}
                   </div>
 
@@ -83,7 +83,7 @@ const Technologies = () => {
                 </div>
 
                 <span
-                  className={`rounded-full px-2 py-1 text-[7px] font-medium ${technology.badgeColor}`}
+                  className={`shrink-0 rounded-full px-2 py-1 text-[7px] font-medium ${technology.badgeColor}`}
                 >
                   {technology.badge}
                 </span>
@@ -98,7 +98,7 @@ const Technologies = () => {
 
               {/* Information */}
 
-              <div className="mt-3 flex items-center justify-between">
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-2">
 
                 <span className="rounded bg-gray-50 px-2 py-1 text-[7px] text-gray-500">
                   {technology.category}
@@ -171,15 +171,15 @@ const Technologies = () => {
 
                   {/* Icon */}
 
-                  <div className="flex h-6 w-6 items-center justify-center text-base">
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center text-base">
                     {technology.icon}
                   </div>
 
                   {/* Name + Category */}
 
-                  <div>
+                  <div className="min-w-0">
 
-                    <p className="text-[9px] font-medium text-slate-900">
+                    <p className="truncate text-[9px] font-medium text-slate-900">
                       {technology.name}
                     </p>
 
